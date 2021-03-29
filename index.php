@@ -5,6 +5,17 @@ require_once 'functions.php';
 
 ?>
 
-<pre>
-    <?php var_dump(getGames(getDB())); ?>
-</pre>
+<html lang="en-GB">
+    <head>
+        <title>Matt's Board Game Collection</title>
+    </head>
+    <body>
+        <nav>
+            <h1>Matt's Board Game Collection</h1>
+            <button>Add Game</button>
+        </nav>
+        <main>
+
+        </main>
+    </body>
+</html>
