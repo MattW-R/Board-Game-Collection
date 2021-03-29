@@ -8,6 +8,7 @@ require_once 'functions.php';
 <html lang="en-GB">
     <head>
         <title>Matt's Board Game Collection</title>
+        <link href="normalize.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <nav>
