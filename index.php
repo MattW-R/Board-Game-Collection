@@ -3,6 +3,10 @@
 require_once 'dbconn.php';
 require_once 'functions.php';
 
+$db = getDB();
+
+$games = getGames($db);
+
 ?>
 
 <html lang="en-GB">
@@ -16,7 +20,7 @@ require_once 'functions.php';
             <button>Add Game</button>
         </nav>
         <main>
-
+            <?php displayGames($games); ?>
         </main>
     </body>
 </html>
