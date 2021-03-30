@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: #F25757 dashed 5px;
+}
+
 html {
     font-family: 'Yatra One', cursive;
     color: #2E2119;
@@ -32,6 +36,11 @@ button {
     border: #2E2119 solid 1px;
     box-shadow: #2E2119 0 0 2px 2px;
     font-size: 1.3rem;
+}
+
+button:hover {
+    color: #C1B098;
+    background-color: #2E2119;
 }
 
 main {
@@ -82,7 +91,12 @@ p {
         top: 60px;
     }
 
-    article:focus-within div, article:focus div {
+    article:focus-within img, img:focus {
+        box-shadow: #F25757 0 0 7px 7px;
+        outline: none;
+    }
+
+    article:focus-within div {
         display: inline-block;
     }
 }
