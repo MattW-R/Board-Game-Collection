@@ -67,9 +67,12 @@ article div {
     width: 35%;
     left: 65%;
     top: 60px;
-    display: none;
     border-left: #00000000 solid 5px;
     padding: 10px;
+}
+
+article div * {
+    display: none;
 }
 
 article h2:nth-child(1) {
@@ -82,13 +85,9 @@ p {
 }
 
 @media screen and (min-width: 1160px) {
-    main::after {
-        position: fixed;
-        content: '';
-        border-left: #109648 dashed 5px;
+    article div {
         height: 100%;
-        left: 65%;
-        top: 60px;
+        border-left: #109648 dashed 5px;
     }
 
     article:focus-within img, img:focus {
@@ -96,16 +95,19 @@ p {
         outline: none;
     }
 
-    article:focus-within div {
-        display: inline-block;
+    article:focus-within div * {
+        display: block;
     }
 }
 
 @media screen and (max-width: 1160px) {
     article div {
         position: static;
-        display: inline-block;
         width: 100%;
+    }
+
+    article div * {
+        display: block;
     }
 
     article {
