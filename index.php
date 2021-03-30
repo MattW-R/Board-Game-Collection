@@ -20,7 +20,7 @@ $games = getGames($db);
     </head>
     <body>
         <nav>
-            <h1 tabindex="0">Matt's Board Game Collection</h1>
+            <h1 tabindex="1">Matt's Board Game Collection</h1>
             <button tabindex="1">Add Game</button>
         </nav>
         <main>
