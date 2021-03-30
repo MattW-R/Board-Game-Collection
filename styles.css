@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+}
+
+article {
+    margin: 10px;
+    max-width: 45%;
+}
+
+article img {
+    max-width: 100%;
+}
+
+article div {
+    position: fixed;
+    width: 30%;
+    left: 70%;
+    top: 10%;
+    display: none;
+}
+
+article:hover div, article:focus-within div, article:focus div {
+    display: inline-block;
+}
+
+article h2:nth-child(1) {
+    text-align: center;
+}

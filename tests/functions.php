@@ -49,7 +49,7 @@ class Functions extends TestCase
         $games = [ [] ];
         $case = displayGames($games);
         $this->assertIsString($case);
-        $this->assertEquals('<article></article>', $case);
+        $this->assertEquals('<article><div></div></article>', $case);
         $games = [ ];
         $case = displayGames($games);
         $this->assertIsString($case);

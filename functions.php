@@ -31,6 +31,8 @@ function displayGames (array $games) : string {
         if (isset($game['image-url']) && $game['name'])
             $html .= '<img src="'. $game['image-url'] .'" alt="Image of the box for '. $game['name'] .'" />';
 
+        $html .= '<div>';
+
         if (isset($game['year-published']) && $game['name'])
             $html .= '<h2>' . $game['name'] . ' (' . $game['year-published'] . ')</h2>';
 
@@ -58,6 +60,8 @@ function displayGames (array $games) : string {
 
         if (isset($game['description']))
             $html .= '<p>' . $game['description'] . '</p>';
+
+        $html .= '</div>';
 
         $html .= '</article>';
     }

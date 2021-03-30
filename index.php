@@ -13,6 +13,7 @@ $games = getGames($db);
     <head>
         <title>Matt's Board Game Collection</title>
         <link href="normalize.css" type="text/css" rel="stylesheet" />
+        <link href="styles.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <nav>
