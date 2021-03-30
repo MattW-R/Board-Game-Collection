@@ -4,17 +4,16 @@
 
 html {
     font-family: 'Yatra One', cursive;
-    color: #654236;
+    color: #2E2119;
     font-size: 90%;
 }
 
-body {
+body, nav {
     background-color: #C1B098;
 }
 
 nav {
     position: fixed;
-    background-color: #C1B098;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -29,9 +28,9 @@ h1 {
 button {
     margin: 10px;
     background-color: #00000000;
-    color: #654236;
-    border: #654236 solid 1px;
-    box-shadow: #654236 0 0 2px 2px;
+    color: #2E2119;
+    border: #2E2119 solid 1px;
+    box-shadow: #2E2119 0 0 2px 2px;
     font-size: 1.3rem;
 }
 
@@ -83,7 +82,7 @@ p {
         top: 60px;
     }
 
-    article:hover div, article:focus-within div, article:focus div {
+    article:focus-within div, article:focus div {
         display: inline-block;
     }
 }

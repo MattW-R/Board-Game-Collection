@@ -19,8 +19,8 @@ $games = getGames($db);
     </head>
     <body>
         <nav>
-            <h1>Matt's Board Game Collection</h1>
-            <button>Add Game</button>
+            <h1 tabindex="0">Matt's Board Game Collection</h1>
+            <button tabindex="0">Add Game</button>
         </nav>
         <main>
             <?= displayGames($games); ?>
