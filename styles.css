@@ -20,6 +20,18 @@ nav {
     border-bottom: #109648 dashed 5px;
 }
 
+h1 {
+    margin: auto 10px;
+}
+
+button {
+    margin: 10px;
+    background-color: #00000000;
+    color: #654236;
+    border: #654236 solid 1px;
+    box-shadow: #654236 0 0 2px 2px;
+}
+
 main {
     padding-top: 60px;
     display: flex;
@@ -41,6 +53,7 @@ main::after {
 article {
     margin: 10px;
     max-width: 45%;
+    box-shadow: #654236 0 0 5px 5px;
 }
 
 article img {
@@ -49,11 +62,12 @@ article img {
 
 article div {
     position: fixed;
-    width: 30%;
+    width: 35%;
     left: 65%;
     top: 60px;
     display: none;
     border-left: #00000000 solid 5px;
+    padding: 10px;
 }
 
 article:hover div, article:focus-within div, article:focus div {
