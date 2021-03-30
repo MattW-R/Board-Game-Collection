@@ -3,6 +3,7 @@
 }
 
 html {
+    font-family: 'Yatra One', cursive;
     color: #654236;
 }
 
@@ -76,4 +77,8 @@ article:hover div, article:focus-within div, article:focus div {
 
 article h2:nth-child(1) {
     text-align: center;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
 }
