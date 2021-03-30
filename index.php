@@ -20,7 +20,7 @@ $games = getGames($db);
             <button>Add Game</button>
         </nav>
         <main>
-            <?php displayGames($games); ?>
+            <?= displayGames($games); ?>
         </main>
     </body>
 </html>
