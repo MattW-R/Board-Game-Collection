@@ -5,6 +5,7 @@
 html {
     font-family: 'Yatra One', cursive;
     color: #654236;
+    font-size: 90%;
 }
 
 body {
@@ -31,6 +32,7 @@ button {
     color: #654236;
     border: #654236 solid 1px;
     box-shadow: #654236 0 0 2px 2px;
+    font-size: 1.3rem;
 }
 
 main {
@@ -42,23 +44,14 @@ main {
     width: 65%;
 }
 
-main::after {
-    position: fixed;
-    content: '';
-    border-left: #109648 dashed 5px;
-    height: 100%;
-    left: 65%;
-    top: 60px;
-}
-
 article {
     margin: 10px;
     max-width: 45%;
-    box-shadow: #654236 0 0 5px 5px;
 }
 
 article img {
     max-width: 100%;
+    box-shadow: #654236 0 0 5px 5px;
 }
 
 article div {
@@ -71,14 +64,46 @@ article div {
     padding: 10px;
 }
 
-article:hover div, article:focus-within div, article:focus div {
-    display: inline-block;
-}
-
 article h2:nth-child(1) {
     text-align: center;
 }
 
 p {
     font-family: 'Ubuntu', sans-serif;
+    font-size: 0.95rem;
+}
+
+@media screen and (min-width: 1160px) {
+    main::after {
+        position: fixed;
+        content: '';
+        border-left: #109648 dashed 5px;
+        height: 100%;
+        left: 65%;
+        top: 60px;
+    }
+
+    article:hover div, article:focus-within div, article:focus div {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    article div {
+        position: static;
+        display: inline-block;
+        width: 100%;
+    }
+
+    article {
+        max-width: 95%;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
 }
