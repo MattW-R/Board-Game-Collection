@@ -12,6 +12,7 @@ $games = getGames($db);
 <html lang="en-GB">
     <head>
         <title>Matt's Board Game Collection</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Yatra+One&display=swap" rel="stylesheet" />
         <link href="normalize.css" type="text/css" rel="stylesheet" />
