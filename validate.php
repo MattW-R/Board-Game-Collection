@@ -10,9 +10,11 @@ if (isset($_POST['name'])) {
     $successfulInsertion = addGame($_POST, $db);
 }
 
-if ($successfulInsertion)
+if ($successfulInsertion) {
     header('Location: index.php');
-else
+}
+else {
     header('Location: add-game.html');
+}
 
 ?>
