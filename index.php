@@ -23,6 +23,7 @@ $gameArticles = displayGames($games);
     <body>
         <nav>
             <h1 tabindex="1">Matt's Board Game Collection</h1>
+            <a href="add-game.php" tabindex="1" class="button">Add Game</a>
         </nav>
         <main>
             <?= $gameArticles ?>
