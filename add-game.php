@@ -10,7 +10,7 @@
     <body>
         <nav>
             <h1 tabindex="1">Add Game to Collection</h1>
-            <button href="index.php" tabindex="1">Back</button>
+            <a href="index.php" tabindex="1" class="button">Back</a>
         </nav>
         <form method="post" action="add-game.php">
             <label for="bgg-id">Board Game Geek ID: </label>

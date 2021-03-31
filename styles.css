@@ -29,23 +29,28 @@ h1 {
     margin: auto 10px;
 }
 
-button {
+a {
     margin: 10px;
+    padding: 7px 7px;
 }
 
-.button, button {
+a:visited, a:link {
+    text-decoration: none;
+}
+
+.button {
     font-size: 1.3rem;
     font-family: 'Yatra One', cursive;
 }
 
-button, input, textarea {
+.button, input, textarea {
     background-color: #00000000;
     color: #2E2119;
     border: #2E2119 solid 1px;
     box-shadow: #2E2119 0 0 2px 2px;
 }
 
-button:hover {
+.button:hover {
     color: #C1B098;
     background-color: #2E2119;
 }
