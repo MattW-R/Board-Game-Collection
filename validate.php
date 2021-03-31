@@ -12,8 +12,7 @@ if (isset($_POST['name'])) {
 
 if ($successfulInsertion) {
     header('Location: index.php');
-}
-else {
+} else {
     header('Location: add-game.html');
 }
 
