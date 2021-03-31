@@ -68,6 +68,13 @@ function displayGames(array $games): string {
     return $html;
 }
 
+/**
+ * validates whether an input associative array has the correct format of key-value pairs to be used to insert data into the database
+ *
+ * @param array $game array to be validated
+ *
+ * @return bool indicating whether the given array is valid
+ */
 function validateInputGameArray(array $game): bool {
     if (array_key_exists('name', $game) && is_string($game['name'])
         && array_key_exists('bgg-id', $game) && is_numeric($game['bgg-id'])
