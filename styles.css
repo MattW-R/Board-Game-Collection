@@ -153,4 +153,9 @@ p, input, textarea {
     h1 {
         font-size: 1.5rem;
     }
+
+    form {
+        width: 90%;
+        left: 5%;
+    }
 }
