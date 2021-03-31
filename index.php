@@ -7,6 +7,8 @@ $db = getDB();
 
 $games = getGames($db);
 
+$gameArticles = displayGames($games);
+
 ?>
 
 <html lang="en-GB">
@@ -23,7 +25,7 @@ $games = getGames($db);
             <h1 tabindex="1">Matt's Board Game Collection</h1>
         </nav>
         <main>
-            <?= displayGames($games); ?>
+            <?= $gameArticles ?>
         </main>
     </body>
 </html>
