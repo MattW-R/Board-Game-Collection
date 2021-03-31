@@ -1,3 +1,18 @@
+<?php
+
+require_once 'dbconn.php';
+require_once 'functions.php';
+
+$successfulInsertion = false;
+
+if (isset($_POST['name'])) {
+    $db = getDB();
+
+    $successfulInsertion = addGame($_POST, $db);
+}
+
+?>
+
 <html lang="en-GB">
     <head>
         <title>Add Game to Collection</title>
@@ -9,7 +24,7 @@
     </head>
     <body>
         <nav>
-            <h1 tabindex="1">Add Game to Collection</h1>
+            <h1 tabindex="1">Add Game to Collection <?php echo $successfulInsertion? 'SUCCESS' : 'FAILURE' ; ?></h1>
             <a href="index.php" tabindex="1" class="button">Back</a>
         </nav>
         <form method="post" action="add-game.php">
@@ -30,9 +45,9 @@
             <label for="play-time-max">Play Time (Max): </label>
             <input name="play-time-max" id="play-time-max" type="number" min="1" required />
             <label for="rating">Rating (/10): </label>
-            <input name="rating" id="rating" type="number" min="0" max="10" required />
+            <input name="rating" id="rating" type="number" min="0" max="10" step="0.1" required />
             <label for="complexity">Complexity Rating (/5): </label>
-            <input name="complexity" id="complexity" type="number" min="0" max="5" required />
+            <input name="complexity" id="complexity" type="number" min="0" max="5" step="0.01" required />
             <label for="image-url">Image URL: </label>
             <input name="image-url" id="image-url" type="text" maxlength="2048" required />
             <input value="Add" type="submit" class="button" />
