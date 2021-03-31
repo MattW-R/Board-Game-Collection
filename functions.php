@@ -68,6 +68,36 @@ function displayGames(array $games): string {
     return $html;
 }
 
+function validateInputGameArray(array $game): bool {
+    if (array_key_exists('name', $game) && is_string($game['name'])
+        && array_key_exists('bgg-id', $game) && is_numeric($game['bgg-id'])
+        && (!array_key_exists('description', $game) || (array_key_exists('description', $game) && is_string($game['description'] && strlen($game['description'] <= 65535))))
+        && array_key_exists('year-published', $game) && is_numeric($game['year-published'])
+        && array_key_exists('player-count-min', $game) && is_numeric($game['player-count-min'])
+        && array_key_exists('player-count-max', $game) && is_numeric($game['player-count-max'])
+        && array_key_exists('play-time-min', $game) && is_numeric($game['play-time-min'])
+        && array_key_exists('play-time-max', $game) && is_numeric($game['play-time-max'])
+        && array_key_exists('rating', $game) && is_numeric($game['rating'])
+        && array_key_exists('complexity', $game) && is_numeric($game['complexity'])
+        && array_key_exists('image-url', $game) && is_string($game['image-url'])
+    ) {
+        if (strlen($game['name']) > 0 && strlen($game['name']) <= 255
+            && $game['bgg-id'] > 0
+            && $game['year-published'] > -9999 && $game['year-published'] < 9999
+            && $game['player-count-min'] > 0 && $game['player-count-min'] < 9999
+            && $game['player-count-max'] > 0 && $game['player-count-max'] < $game['player-count-min']
+            && $game['play-time-min'] > 0 && $game['play-time-min'] < 9999
+            && $game['play-time-max'] > 0 && $game['play-time-max'] < $game['play-time-min']
+            && $game['rating'] > 0 && $game['rating'] <= 10
+            && $game['complexity'] > 0 && $game['complexity'] <= 5
+            && filter_var($game['image-url'], FILTER_VALIDATE_URL) && strlen($game['image-url']) <= 255
+        ) {
+            return true;
+        }
+    }
+    return false;
+}
+
 /**
  * inserts a new board game into the database using an associative array with the correct keys after validating & sanitising the values
  *
