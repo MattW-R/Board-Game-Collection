@@ -18,24 +18,24 @@
             <label for="name">Name: </label>
             <input name="name" id="name" type="text" required />
             <label for="description">Description: </label>
-            <textarea name="description" id="description" cols="50"></textarea>
+            <textarea name="description" id="description" rows="10"></textarea>
             <label for="year-published">Year Published: </label>
             <input name="year-published" id="year-published" type="number" max="3000" required />
             <label for="player-count-min">Player Count (Min): </label>
             <input name="player-count-min" id="player-count-min" type="number" min="1" required />
             <label for="player-count-max">Player Count (Max): </label>
-            <input name="player-count-max" id="player-count-max" type="text" min="1" required />
+            <input name="player-count-max" id="player-count-max" type="number" min="1" required />
             <label for="play-time-min">Play Time (Min): </label>
-            <input name="play-time-min" id="play-time-min" type="text" min="1" required />
+            <input name="play-time-min" id="play-time-min" type="number" min="1" required />
             <label for="play-time-max">Play Time (Max): </label>
-            <input name="play-time-max" id="play-time-max" type="text" min="1" required />
-            <label for="rating">Rating: </label>
-            <input name="rating" id="rating" type="text" min="0" max="10" required />
-            <label for="complexity">Complexity Rating: </label>
-            <input name="complexity" id="complexity" type="text" min="0" max="5" required />
+            <input name="play-time-max" id="play-time-max" type="number" min="1" required />
+            <label for="rating">Rating (/10): </label>
+            <input name="rating" id="rating" type="number" min="0" max="10" required />
+            <label for="complexity">Complexity Rating (/5): </label>
+            <input name="complexity" id="complexity" type="number" min="0" max="5" required />
             <label for="image-url">Image URL: </label>
             <input name="image-url" id="image-url" type="text" maxlength="2048" required />
-            <input value="Add" type="submit" />
+            <input value="Add" type="submit" class="button" />
         </form>
     </body>
 </html>
