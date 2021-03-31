@@ -7,7 +7,7 @@
  *
  * @return array of associative arrays containing individual board game information
  */
-function getGames (PDO $db) : array
+function getGames(PDO $db): array
 {
     $query = $db->prepare("SELECT `name`, `description`, `year-published`, `player-count-min`,
        `player-count-max`, `play-time-min`, `play-time-max`, `rating`, `complexity`, `image-url` FROM `games`");
@@ -22,7 +22,7 @@ function getGames (PDO $db) : array
  *
  * @return string consisting of html elements representing board game information
  */
-function displayGames (array $games) : string {
+function displayGames(array $games): string {
     $html = '';
     foreach ($games as $game)
     {

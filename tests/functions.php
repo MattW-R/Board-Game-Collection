@@ -7,13 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class Functions extends TestCase
 {
-    public function testMalformedGetGames ()
+    public function testMalformedGetGames()
     {
         $this->expectException(TypeError::class);
         getGames(0);
     }
 
-    public function testSuccessDisplayGames () {
+    public function testSuccessDisplayGames() {
         $games = [ ['name'=>'Exploding Kittens',
             'description'=>'desc',
             'year-published'=>'2015',
@@ -41,7 +41,7 @@ class Functions extends TestCase
         $case = displayGames($games);
         $this->assertEquals($expected, $case);
     }
-    public function testFailureDisplayGames () {
+    public function testFailureDisplayGames() {
         $games = [ [] ];
         $case = displayGames($games);
         $this->assertIsString($case);
@@ -51,7 +51,7 @@ class Functions extends TestCase
         $this->assertIsString($case);
         $this->assertEquals('', $case);
     }
-    public function testMalformedDisplayGames ()
+    public function testMalformedDisplayGames()
     {
         $this->expectException(TypeError::class);
         displayGames(0);
