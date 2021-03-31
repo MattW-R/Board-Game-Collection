@@ -117,20 +117,20 @@ function addGame(array $game, PDO $db): bool {
     if (validateInputGameArray($game)) {
         $query = $db->prepare('INSERT INTO `games` (`name`, `bgg-id`, `description`, `year-published`,
                          `player-count-min`, `player-count-max`, `play-time-min`, `play-time-max`, `rating`, 
-                         `complexity`, `image-url`) VALUES (:name, :bgg-id, :description, :year-published, 
-                        :player-count-min, :player-count-max, :play-time-min, :play-time-max, :rating, :complexity,
-                        :image-url)');
-        $query->bindParam('name', $game['name']);
-        $query->bindParam('bgg-id', $game['bgg-id']);
-        $query->bindParam('description', $game['description']);
-        $query->bindParam('year-published', $game['year-published']);
-        $query->bindParam('player-count-min', $game['player-count-min']);
-        $query->bindParam('player-count-max', $game['player-count-max']);
-        $query->bindParam('play-time-min', $game['play-time-min']);
-        $query->bindParam('play-time-max', $game['`play-time-max']);
-        $query->bindParam('rating', $game['rating']);
-        $query->bindParam('complexity', $game['rating']);
-        $query->bindParam('image-url', $game['image-url']);
+                         `complexity`, `image-url`) VALUES (:Game, :BggId , :Description , :YearPublished , 
+                        :PlayerCountMin , :PlayerCountMax , :PlayTimeMin , :PlayTimeMax , :Rating , :Complexity ,
+                        :ImageUrl );');
+        $query->bindParam(':Game', $game['name']);
+        $query->bindParam(':BggId', $game['bgg-id']);
+        $query->bindParam(':Description', $game['description']);
+        $query->bindParam(':YearPublished', $game['year-published']);
+        $query->bindParam(':PlayerCountMin', $game['player-count-min']);
+        $query->bindParam(':PlayerCountMax', $game['player-count-max']);
+        $query->bindParam(':PlayTimeMin', $game['play-time-min']);
+        $query->bindParam(':PlayTimeMax', $game['play-time-max']);
+        $query->bindParam(':Rating', $game['rating']);
+        $query->bindParam(':Complexity', $game['complexity']);
+        $query->bindParam(':ImageUrl', $game['image-url']);
         return $query->execute();
     }
     else return false;

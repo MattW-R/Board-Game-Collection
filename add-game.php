@@ -24,7 +24,7 @@ if (isset($_POST['name'])) {
     </head>
     <body>
         <nav>
-            <h1 tabindex="1">Add Game to Collection <?php echo $successfulInsertion? 'SUCCESS' : 'FAILURE' ; ?></h1>
+            <h1 tabindex="1">Add Game to Collection</h1>
             <a href="index.php" tabindex="1" class="button">Back</a>
         </nav>
         <form method="post" action="add-game.php">
