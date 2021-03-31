@@ -1,18 +1,4 @@
-<?php
-
-require_once 'dbconn.php';
-require_once 'functions.php';
-
-$successfulInsertion = false;
-
-if (isset($_POST['name'])) {
-    $db = getDB();
-
-    $successfulInsertion = addGame($_POST, $db);
-}
-
-?>
-
+<!DOCTYPE html>
 <html lang="en-GB">
     <head>
         <title>Add Game to Collection</title>
@@ -27,7 +13,7 @@ if (isset($_POST['name'])) {
             <h1 tabindex="1">Add Game to Collection</h1>
             <a href="index.php" tabindex="1" class="button">Back</a>
         </nav>
-        <form method="post" action="add-game.php">
+        <form method="post" action="validate.php">
             <label for="bgg-id">Board Game Geek ID*: </label>
             <input name="bgg-id" id="bgg-id" type="number" required />
             <label for="name">Name*: </label>
