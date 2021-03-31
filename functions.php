@@ -68,4 +68,32 @@ function displayGames(array $games): string {
     return $html;
 }
 
+/**
+ * inserts a new board game into the database using an associative array with the correct keys after validating & sanitising the values
+ *
+ * @param array $game containing keys containing properties associated with the board game being input
+ * @param PDO $db linked to the board game database to add the new board game into
+ *
+ * @return bool indicating whether the validation & database insertion was a success
+ */
+function addGame(array $game, PDO $db): bool {
+    $query = $db->prepare('INSERT INTO `games` (`name`, `bgg-id`, `description`, `year-published`,
+                     `player-count-min`, `player-count-max`, `play-time-min`, `play-time-max`, `rating`, 
+                     `complexity`, `image-url`) VALUES (:name, :bgg-id, :description, :year-published, 
+                    :player-count-min,:player-count-max, :play-time-min, :play-time-max, :rating, :complexity,
+                    :image-url)');
+    $query->bindParam(':name', $game['name']);
+    $query->bindParam(':bgg-id', $game['bgg-id']);
+    $query->bindParam(':description', $game['description']);
+    $query->bindParam(':year-published', $game['year-published']);
+    $query->bindParam(':player-count-min', $game['player-count-min']);
+    $query->bindParam(':player-count-max', $game['player-count-max']);
+    $query->bindParam(':play-time-min', $game['play-time-min']);
+    $query->bindParam(':play-time-max', $game['`play-time-max']);
+    $query->bindParam(':rating', $game['rating']);
+    $query->bindParam(':complexity', $game['rating']);
+    $query->bindParam(':image-url', $game['image-url']);
+    return $query->execute();
+}
+
 ?>
