@@ -78,7 +78,7 @@ function displayGames(array $games): string {
 function validateInputGameArray(array $game): bool {
     if (array_key_exists('name', $game) && is_string($game['name'])
         && array_key_exists('bgg-id', $game) && is_numeric($game['bgg-id'])
-        && (!array_key_exists('description', $game) || (array_key_exists('description', $game) && is_string($game['description'] && strlen($game['description'] <= 65535))))
+        && (!array_key_exists('description', $game) || (array_key_exists('description', $game) && is_string($game['description']) && strlen($game['description']) <= 65535))
         && array_key_exists('year-published', $game) && is_numeric($game['year-published'])
         && array_key_exists('player-count-min', $game) && is_numeric($game['player-count-min'])
         && array_key_exists('player-count-max', $game) && is_numeric($game['player-count-max'])
@@ -92,9 +92,9 @@ function validateInputGameArray(array $game): bool {
             && $game['bgg-id'] > 0
             && $game['year-published'] > -9999 && $game['year-published'] < 9999
             && $game['player-count-min'] > 0 && $game['player-count-min'] < 9999
-            && $game['player-count-max'] > 0 && $game['player-count-max'] < $game['player-count-min']
+            && $game['player-count-max'] > 0 && $game['player-count-max'] >= $game['player-count-min']
             && $game['play-time-min'] > 0 && $game['play-time-min'] < 9999
-            && $game['play-time-max'] > 0 && $game['play-time-max'] < $game['play-time-min']
+            && $game['play-time-max'] > 0 && $game['play-time-max'] >= $game['play-time-min']
             && $game['rating'] > 0 && $game['rating'] <= 10
             && $game['complexity'] > 0 && $game['complexity'] <= 5
             && filter_var($game['image-url'], FILTER_VALIDATE_URL) && strlen($game['image-url']) <= 255
