@@ -19,6 +19,7 @@ $gameArticles = displayGames($games);
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Yatra+One&display=swap" rel="stylesheet" />
         <link href="normalize.css" type="text/css" rel="stylesheet" />
         <link href="styles.css" type="text/css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" defer></script>
     </head>
     <body>
         <nav>
