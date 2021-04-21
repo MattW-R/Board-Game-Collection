@@ -12,7 +12,11 @@ const fetchAndDisplayGame = (bggId) => {
                 .then(xml => xml2json(xml, ''))
                 .then (jsonString => JSON.parse(jsonString))
                 .then (object => {
-                    document.getElementById(bggId).innerHTML = template(object)
+                    object.items.item.description = object.items.item.description.replaceAll('&amp;', '&')
+                    // document.getElementById(bggId).innerHTML = template(object)
+                    // DEBUG
+                    console.log(object)
+                    document.querySelectorAll('article')[0].innerHTML = template(object)
                 })
         })
 
