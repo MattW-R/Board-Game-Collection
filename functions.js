@@ -12,15 +12,16 @@ const fetchAndDisplayGame = (bggId) => {
                 .then(xml => xml2json(xml, ''))
                 .then (jsonString => JSON.parse(jsonString))
                 .then (object => {
+                    object.items.item.statistics.ratings.average['@value'] = parseFloat(object.items.item.statistics.ratings.average['@value']).toFixed(1)
+                    object.items.item.statistics.ratings.averageweight['@value'] = parseFloat(object.items.item.statistics.ratings.averageweight['@value']).toFixed(2)
                     object.items.item.description = object.items.item.description.replaceAll('&amp;', '&')
                     // document.getElementById(bggId).innerHTML = template(object)
+
                     // DEBUG
                     console.log(object)
                     document.querySelectorAll('article')[0].innerHTML = template(object)
                 })
         })
-
-
 }
 
 // DEBUG
