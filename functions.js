@@ -33,6 +33,3 @@ const displayGame = (gameObject) => {
             document.querySelector('main').innerHTML += template(gameObject)
         })
 }
-
-// DEBUG
-fetchGame('259996', displayGame)
