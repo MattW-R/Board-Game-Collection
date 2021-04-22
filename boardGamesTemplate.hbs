@@ -1,10 +1,12 @@
-<img tabindex="2" src="{{items.item.image}}" alt="Image of the box for {{items.item.name.0.[@value]}}">
-<div>
-    <h2 tabindex="2">{{items.item.name.0.[@value]}} ()</h2>
-    <h2 tabindex="2">Rating: {{items.item.statistics.ratings.average.[@value]}}/10</h2>
-    <h2 tabindex="2">Complexity: {{items.item.statistics.ratings.averageweight.[@value]}}/5</h2>
-    <h2 tabindex="2">Min Player Count: {{items.item.minplayers.[@value]}}</h2>
-    <h2 tabindex="2">Max Player Count: {{items.item.maxplayers.[@value]}}</h2>
-    <h2 tabindex="2">Play Time: {{items.item.playingtime.[@value]}} minutes</h2>
-    <p tabindex="2">{{{items.item.description}}}</p>
-</div>
+<article>
+    <img tabindex="2" src="{{items.item.image}}" alt="Image of the box for {{items.item.name.0.[@value]}}">
+    <div>
+        <h2 tabindex="2">{{items.item.name.0.[@value]}} ({{items.item.yearpublished.[@value]}})</h2>
+        <h2 tabindex="2">Rating: {{items.item.statistics.ratings.average.[@value]}}/10</h2>
+        <h2 tabindex="2">Complexity: {{items.item.statistics.ratings.averageweight.[@value]}}/5</h2>
+        <h2 tabindex="2">Min Player Count: {{items.item.minplayers.[@value]}}</h2>
+        <h2 tabindex="2">Max Player Count: {{items.item.maxplayers.[@value]}}</h2>
+        <h2 tabindex="2">Play Time: {{items.item.playingtime.[@value]}} minutes</h2>
+        <p tabindex="2">{{{items.item.description}}}</p>
+    </div>
+</article>

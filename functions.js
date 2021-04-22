@@ -30,11 +30,7 @@ const displayGame = (gameObject) => {
             gameObject.items.item.statistics.ratings.average['@value'] = parseFloat(gameObject.items.item.statistics.ratings.average['@value']).toFixed(1)
             gameObject.items.item.statistics.ratings.averageweight['@value'] = parseFloat(gameObject.items.item.statistics.ratings.averageweight['@value']).toFixed(2)
             gameObject.items.item.description = gameObject.items.item.description.replaceAll('&amp;', '&')
-            // document.getElementById(bggId).innerHTML = template(object)
-
-            // DEBUG
-            console.log(gameObject)
-            document.querySelectorAll('article')[0].innerHTML = template(gameObject)
+            document.querySelector('main').innerHTML += template(gameObject)
         })
 }
 
