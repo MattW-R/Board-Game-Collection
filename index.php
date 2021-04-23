@@ -20,8 +20,8 @@ $gameArticles = displayGames($games);
         <link href="normalize.css" type="text/css" rel="stylesheet" />
         <link href="styles.css" type="text/css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" defer></script>
-        <script src="xml2json.js" defer></script>
-        <script src="functions.js" defer></script>
+        <script src="xml2json.js"></script>
+        <script src="functions.js"></script>
     </head>
     <body>
         <nav>
