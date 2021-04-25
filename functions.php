@@ -26,7 +26,7 @@ function displayGames(array $games): string {
     foreach ($games as $game)
     {
         if (isset($game['bgg-id']))
-            $html .= "<script>fetchGame('" . $game['bgg-id'] . "', displayGame)</script>";
+            $html .= "<article id=\"" . $game['bgg-id'] . "\"></article>";
     }
     return $html;
 }

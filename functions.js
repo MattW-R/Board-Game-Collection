@@ -14,7 +14,7 @@ const fetchGame = (bggId, callback) => {
         })
         .then(xml => xml2json(xml, ''))
         .then(jsonString => JSON.parse(jsonString))
-        .then(callback)
+        .then(gameObject => {callback(gameObject, bggId)})
 }
 
 /**
@@ -22,7 +22,7 @@ const fetchGame = (bggId, callback) => {
  *
  * @param {object} gameObject object containing all the board game's information in the format of the boardgamegeek API
  */
-const displayGame = (gameObject) => {
+const displayGame = (gameObject, id) => {
     fetch('boardGamesTemplate.hbs')
         .then(templateData => templateData.text())
         .then(templateString => Handlebars.compile(templateString))
@@ -30,6 +30,6 @@ const displayGame = (gameObject) => {
             gameObject.items.item.statistics.ratings.average['@value'] = parseFloat(gameObject.items.item.statistics.ratings.average['@value']).toFixed(1)
             gameObject.items.item.statistics.ratings.averageweight['@value'] = parseFloat(gameObject.items.item.statistics.ratings.averageweight['@value']).toFixed(2)
             gameObject.items.item.description = gameObject.items.item.description.replaceAll('&amp;', '&')
-            document.querySelector('main').innerHTML += template(gameObject)
+            document.getElementById(id).innerHTML = template(gameObject)
         })
 }
