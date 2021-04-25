@@ -15,11 +15,11 @@ function getGames(PDO $db): array
 }
 
 /**
- * returns a string containing html elements that display the data contained within the provided games array
+ * returns a string containing html elements with id attributes equal to their boardgamegeek IDs
  *
- * @param array $games of associative arrays containing individual board game information
+ * @param array $games of associative arrays containing boardgamegeek IDs
  *
- * @return string consisting of html elements representing board game information
+ * @return string consisting of html article elements containing boardgamegeek IDs as id attributes
  */
 function displayGames(array $games): string {
     $html = '';
