@@ -14,30 +14,20 @@ class Functions extends TestCase
     }
 
     public function testSuccessDisplayGames() {
-        $games = [ ['name'=>'Exploding Kittens',
-            'description'=>'desc',
-            'year-published'=>'2015',
-            'player-count-min'=>'2',
-            'player-count-max'=>'5',
-            'play-time-min'=>'15',
-            'play-time-max'=>'15',
-            'rating'=>'6.0',
-            'complexity'=>'1.07',
-            'image-url'=>'https://cf.geekdo-images.com/N8bL53-pRU7zaXDTrEaYrw__original/img/0ciN1VZYifUd0qIDO0e8cGXmiss=/0x0/filters:format(png)/pic2691976.png'] ];
+        $games = [ [
+            'bgg-id'=>'259996'
+        ] ];
         $case = displayGames($games);
         $this->assertIsString($case);
-        $expected = '<article><img tabindex="2" src="https://cf.geekdo-images.com/N8bL53-pRU7zaXDTrEaYrw__original/img/0ciN1VZYifUd0qIDO0e8cGXmiss=/0x0/filters:format(png)/pic2691976.png" alt="Image of the box for Exploding Kittens" /><div><h2 tabindex="2">Exploding Kittens (2015)</h2><h2 tabindex="2">Rating: 6.0/10</h2><h2 tabindex="2">Complexity: 1.07/5</h2><h2 tabindex="2">Player Count: 2-5</h2><h2 tabindex="2">Play Time: 15 minutes</h2><p tabindex="2">desc</p></div></article>';
+        $expected = '<article id="259996"></article>';
         $this->assertEquals($expected, $case);
-        $games = [ ['name'=>'Exploding Kittens',
-            'year-published'=>'2015',
-            'player-count-min'=>'2',
-            'player-count-max'=>'5',
-            'play-time-min'=>'15',
-            'play-time-max'=>'15',
-            'rating'=>'6.0',
-            'complexity'=>'1.07',
-            ] ];
-        $expected = '<article><div><h2 tabindex="2">Exploding Kittens (2015)</h2><h2 tabindex="2">Rating: 6.0/10</h2><h2 tabindex="2">Complexity: 1.07/5</h2><h2 tabindex="2">Player Count: 2-5</h2><h2 tabindex="2">Play Time: 15 minutes</h2></div></article>';
+        $games = [ [
+            'bgg-id'=>'259996'
+        ], [
+        'bgg-id'=>'254496'
+        ]
+        ];
+        $expected = '<article id="259996"></article><article id="254496"></article>';
         $case = displayGames($games);
         $this->assertEquals($expected, $case);
     }
@@ -45,7 +35,7 @@ class Functions extends TestCase
         $games = [ [] ];
         $case = displayGames($games);
         $this->assertIsString($case);
-        $this->assertEquals('<article><div></div></article>', $case);
+        $this->assertEquals('', $case);
         $games = [ ];
         $case = displayGames($games);
         $this->assertIsString($case);
