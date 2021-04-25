@@ -7,6 +7,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Yatra+One&display=swap" rel="stylesheet" />
         <link href="normalize.css" type="text/css" rel="stylesheet" />
         <link href="styles.css" type="text/css" rel="stylesheet" />
+        <script src="xml2json.js" defer></script>
+        <script src="functions.js" defer></script>
+        <script src="add-game.js" defer></script>
     </head>
     <body>
         <nav>
@@ -14,9 +17,9 @@
             <a href="index.php" tabindex="1" class="button">Back</a>
         </nav>
         <form>
-            <label for="name">Name: </label>
-            <input name="name" id="name" type="text" tabindex="2" required />
-            <button class="button" tabindex="2">Search</button>
+            <label for="searchName">Name: </label>
+            <input name="name" id="searchName" type="text" tabindex="2" required />
+            <button id="searchButton" class="button" tabindex="2">Search</button>
         </form>
     </body>
 </html>
