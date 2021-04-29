@@ -1,0 +1,18 @@
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Year Published</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+{{#each items.item}}
+    <tr>
+        <td>{{name.[@value]}}</td>
+        <td>{{yearpublished.[@value]}}</td>
+        <td>
+            <button class="button add-game-button" data-bgg-id="{{[@id]}}">Add</button>
+        </td>
+    </tr>
+{{/each}}
+</tbody>

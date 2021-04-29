@@ -35,7 +35,7 @@ const displayGame = (gameObject, id) => {
         })
 }
 
-const searchGames = (query) => {
+const searchGames = (query, callback) => {
     query = query.toLowerCase().replaceAll(' ', '+')
     fetch(`https://boardgamegeek.com/xmlapi2/search?query=${query}&type=boardgame`)
         .then(data => data.text())
@@ -45,5 +45,14 @@ const searchGames = (query) => {
         })
         .then(xml => xml2json(xml, ''))
         .then(jsonString => JSON.parse(jsonString))
-        .then(searchGames => console.log(searchGames))
+        .then(callback)
+}
+
+const displaySearchGames = (gameList) => {
+    fetch('searchGameListTemplate.hbs')
+        .then(templateData => templateData.text())
+        .then(templateString => Handlebars.compile(templateString))
+        .then(template => {
+            document.querySelector('table').innerHTML = template(gameList)
+        })
 }
