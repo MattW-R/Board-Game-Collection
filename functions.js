@@ -57,12 +57,12 @@ const displaySearchGames = (gameList) => {
         })
         .then(() => {
             document.querySelectorAll('.add-game-button').forEach(addGameButton => {
-                addGameButton.addEventListener('click', addGameButtonEvent)
+                addGameButton.addEventListener('click', addGameButtonAction)
             })
         })
 }
 
-const addGameButtonEvent = (e) => {
+const addGameButtonAction = (e) => {
     let formData = new FormData()
     formData.append('bgg-id', e.target.dataset.bggId)
     fetch('validate.php', {
