@@ -55,4 +55,25 @@ const displaySearchGames = (gameList) => {
         .then(template => {
             document.querySelector('table').innerHTML = template(gameList)
         })
+        .then(() => {
+            document.querySelectorAll('.add-game-button').forEach(addGameButton => {
+                addGameButton.addEventListener('click', addGameButtonEvent)
+            })
+        })
+}
+
+const addGameButtonEvent = (e) => {
+    let formData = new FormData()
+    formData.append('bgg-id', e.target.dataset.bggId)
+    fetch('validate.php', {
+        method: 'post',
+        body: formData
+    })
+        .then(data => data.text())
+        .then(result => {
+            console.log(result)
+            if (result == 'success') {
+                e.target.textContent = 'Added'
+            }
+        })
 }

@@ -5,15 +5,15 @@ require_once 'functions.php';
 
 $successfulInsertion = false;
 
-if (isset($_POST['name'])) {
+if (isset($_POST['bgg-id'])) {
     $db = getDB();
     $successfulInsertion = addGame($_POST, $db);
 }
 
 if ($successfulInsertion) {
-    header('Location: index.php');
+    echo 'success';
 } else {
-    header('Location: add-game.html');
+    echo 'failure';
 }
 
 ?>
