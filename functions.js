@@ -71,7 +71,6 @@ const addGameButtonEvent = (e) => {
     })
         .then(data => data.text())
         .then(result => {
-            console.log(result)
             if (result == 'success') {
                 e.target.textContent = 'Added'
             }
