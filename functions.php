@@ -56,22 +56,8 @@ function validateInputGameArray(array $game): bool {
 function addGame(array $game, PDO $db): bool {
     if (validateInputGameArray($game)) {
         if (filter_var_array($game, FILTER_SANITIZE_STRING)) {
-            $query = $db->prepare('INSERT INTO `games` (`name`, `bgg-id`, `description`, `year-published`,
-                         `player-count-min`, `player-count-max`, `play-time-min`, `play-time-max`, `rating`, 
-                         `complexity`, `image-url`) VALUES (:Game, :BggId , :Description , :YearPublished , 
-                        :PlayerCountMin , :PlayerCountMax , :PlayTimeMin , :PlayTimeMax , :Rating , :Complexity ,
-                        :ImageUrl );');
-            $query->bindParam(':Game', $game['name']);
+            $query = $db->prepare('INSERT INTO `games` (`bgg-id`) VALUES (:BggId);');
             $query->bindParam(':BggId', $game['bgg-id']);
-            $query->bindParam(':Description', $game['description']);
-            $query->bindParam(':YearPublished', $game['year-published']);
-            $query->bindParam(':PlayerCountMin', $game['player-count-min']);
-            $query->bindParam(':PlayerCountMax', $game['player-count-max']);
-            $query->bindParam(':PlayTimeMin', $game['play-time-min']);
-            $query->bindParam(':PlayTimeMax', $game['play-time-max']);
-            $query->bindParam(':Rating', $game['rating']);
-            $query->bindParam(':Complexity', $game['complexity']);
-            $query->bindParam(':ImageUrl', $game['image-url']);
             return $query->execute();
         }
     }
