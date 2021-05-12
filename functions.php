@@ -17,15 +17,15 @@ function getGames(PDO $db): array
 /**
  * function to determine if board game with a specified bgg-id is already in the database
  *
- * @param string $bggId bgg-id for item being checked
+ * @param array $game array containing bgg-id for item being checked
  * @param PDO $db PDO with link to database containing board game information
  *
  * @return bool boolean indicating whether or not the board game is already in the database
  */
-function isGameAdded(string $bggId, PDO $db): bool
+function isGameAdded(array $game, PDO $db): bool
 {
     $query = $db->prepare("SELECT `bgg-id` FROM `games` WHERE `bgg-id` = :Bggid;");
-    $query->bindParam(':Bggid', $bggId);
+    $query->bindParam(':Bggid', $game['bgg-id']);
     $query->execute();
     if ($query->fetch()) {
         return true;
