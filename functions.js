@@ -65,7 +65,7 @@ const displaySearchGames = (gameList) => {
 const addGameButtonAction = (e) => {
     let formData = new FormData()
     formData.append('bgg-id', e.target.dataset.bggId)
-    fetch('validate.php', {
+    fetch('add-game-validate.php', {
         method: 'post',
         body: formData
     })
