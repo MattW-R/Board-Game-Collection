@@ -20,5 +20,3 @@ if ($successfulInsertion) {
 } else {
     echo 'failure';
 }
-
-?>

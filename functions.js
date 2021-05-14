@@ -45,6 +45,18 @@ const searchGames = (query, callback) => {
         })
         .then(xml => xml2json(xml, ''))
         .then(jsonString => JSON.parse(jsonString))
+        .then(gameList => {
+            gameList.items.item.forEach(game => {
+                fetch(`is-game-added.php?bgg-id=${game['@id']}`)
+                    .then(data => data.text())
+                    .then(result => {
+                        if (result == 'true') {
+                            game.added = true;
+                        }
+                    })
+            })
+            return gameList;
+        })
         .then(callback)
 }
 
@@ -73,6 +85,7 @@ const addGameButtonAction = (e) => {
         .then(result => {
             if (result == 'success') {
                 e.target.textContent = 'Added'
+                e.target.classList.add('disabled')
             }
         })
 }
