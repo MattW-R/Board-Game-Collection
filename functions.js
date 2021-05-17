@@ -46,15 +46,17 @@ const searchGames = (query, callback) => {
         .then(xml => xml2json(xml, ''))
         .then(jsonString => JSON.parse(jsonString))
         .then(gameList => {
-            gameList.items.item.forEach(game => {
-                fetch(`is-game-added.php?bgg-id=${game['@id']}`)
-                    .then(data => data.text())
-                    .then(result => {
-                        if (result == 'true') {
-                            game.added = true;
-                        }
-                    })
-            })
+            if (gameList.items.item) {
+                gameList.items.item.forEach(game => {
+                    fetch(`is-game-added.php?bgg-id=${game['@id']}`)
+                        .then(data => data.text())
+                        .then(result => {
+                            if (result == 'true') {
+                                game.added = true;
+                            }
+                        })
+                })
+            }
             return gameList;
         })
         .then(callback)
@@ -65,7 +67,11 @@ const displaySearchGames = (gameList) => {
         .then(templateData => templateData.text())
         .then(templateString => Handlebars.compile(templateString))
         .then(template => {
-            document.querySelector('table').innerHTML = template(gameList)
+            if (gameList.items.item) {
+                document.querySelector('table').innerHTML = template(gameList)
+            } else {
+                document.querySelector('table').innerHTML = 'No Results'
+            }
         })
         .then(() => {
             document.querySelectorAll('.add-game-button').forEach(addGameButton => {
