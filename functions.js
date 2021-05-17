@@ -35,6 +35,13 @@ const displayGame = (gameObject, id) => {
         })
 }
 
+/**
+ * function to fetch an object containing board game search data from the BoardGameGeek API
+ * using its BoardGameGeek ID
+ *
+ * @param {string} query the search query
+ * @param {function} callback callback function that takes in & uses the fetched board game search object
+ */
 const searchGames = (query, callback) => {
     query = query.toLowerCase().replaceAll(' ', '+')
     fetch(`https://boardgamegeek.com/xmlapi2/search?query=${query}&type=boardgame`)
@@ -62,6 +69,11 @@ const searchGames = (query, callback) => {
         .then(callback)
 }
 
+/**
+ * function to display a list of searched board games to the page using a Handlebars template from a parsed BoardGameGeek API search query
+ *
+ * @param {object} gameList object containing the board game search information in the format of a BoardGameGeek API search query
+ */
 const displaySearchGames = (gameList) => {
     fetch('searchGameListTemplate.hbs')
         .then(templateData => templateData.text())
@@ -80,6 +92,11 @@ const displaySearchGames = (gameList) => {
         })
 }
 
+/**
+ * function to add a board game to the database after clicking a button & change the state of said button
+ *
+ * @param {object} e the (button click) event triggering the function
+ */
 const addGameButtonAction = (e) => {
     let formData = new FormData()
     formData.append('bgg-id', e.target.dataset.bggId)
