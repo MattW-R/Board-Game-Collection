@@ -11,7 +11,7 @@
         <td>{{name.[@value]}}</td>
         <td>{{yearpublished.[@value]}}</td>
         <td>
-            <button class="button add-game-button{{#if added}} disabled{{/if}}" data-bgg-id="{{[@id]}}">{{#if added}}Added{{else}}Add{{/if}}</button>
+            <button tabindex="3" aria-label="Add {{name.[@value]}} published in {{yearpublished.[@value]}} to collection" class="button add-game-button{{#if added}} disabled{{/if}}" data-bgg-id="{{[@id]}}">{{#if added}}Added{{else}}Add{{/if}}</button>
         </td>
     </tr>
 {{/each}}
