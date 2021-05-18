@@ -1,0 +1,18 @@
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Year Published</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+{{#each items.item}}
+    <tr>
+        <td>{{name.[@value]}}</td>
+        <td>{{yearpublished.[@value]}}</td>
+        <td>
+            <button tabindex="3" aria-label="Add {{name.[@value]}} published in {{yearpublished.[@value]}} to collection" class="button add-game-button{{#if added}} disabled{{/if}}" data-bgg-id="{{[@id]}}">{{#if added}}Added{{else}}Add{{/if}}</button>
+        </td>
+    </tr>
+{{/each}}
+</tbody>
